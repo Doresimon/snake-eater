@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>ONT SNAKE</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- <link rel="stylesheet" type="text/css" media="screen" href="main.css" /> -->
+    <!-- 生产环境版本，优化了尺寸和速度 -->
+    <script src="https://cdn.jsdelivr.net/npm/vue"></script>
+    <!-- 引入样式 -->
+    <link rel="stylesheet" href="https://unpkg.com/element-ui/lib/theme-chalk/index.css">
+    <!-- 引入组件库 -->
+    <script src="https://unpkg.com/element-ui/lib/index.js"></script>
+</head>
+<body>
+    <div id="app" style="margin-left:200px;margin-right:200px;height: 800px;width: 800px;">
+
+        <div v-for="(row, k) in map">
+            <span v-for="(dot, kk) in row" style="display: inline-block;width:20px;height:20px;border: 1px;">
+                <i class="el-icon-circle-plus-outline" v-show="dot.snake <= snakeLen && dot.snake > 1"></i>
+                <i class="el-icon-circle-plus" v-show="dot.snake==1"></i>
+                <i class="el-icon-menu" v-show="dot.danger&&dot.snake==0"></i>
+                <!-- <i class="el-icon-star-on" v-show="dot.bonus&&dot.snake==0"></i> -->
+                <img src="ont.png" style="height:14px;width:14px;" v-show="dot.bonus&&dot.snake==0">
+            </span>
+        </div>
+
+    </div>
+</body>
+<script src="snake.js"></script>
+</html>
