@@ -2,13 +2,20 @@
   "name": "snake-eater",
   "version": "0.0.0",
   "private": true,
+  "main": "main.js",
   "scripts": {
-    "start": "node ./bin/www"
+    "start": "electron .",
+    "pack": "electron-builder --dir",
+    "dist": "electron-builder"
   },
-  "dependencies": {
-    "cookie-parser": "~1.4.3",
-    "debug": "~2.6.9",
-    "express": "^4.16.3",
-    "morgan": "~1.9.0"
+  "build": {
+    "appId": "your.id",
+    "mac": {
+      "category": "your.app.category.type"
+    }
+  },
+  "devDependencies": {
+    "electron": "^3.0.4",
+    "electron-builder": "^20.28.4"
   }
 }

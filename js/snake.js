@@ -122,6 +122,9 @@ new Vue({
         },
         randInt(min, max) {
             return Math.round( Math.random() * (max - min) + min);
+        },
+        refresh() {
+            return Math.round( Math.random() * (max - min) + min);
         }
     },
     created() {
@@ -160,3 +163,18 @@ new Vue({
 
     }
   })
+
+//***//
+const globalShortcut = electron.globalShortcut
+//***//
+function createWindow () {
+	//***//
+	globalShortcut.register('f5', function() {
+		console.log('f5 is pressed')
+		mainWindow.reload()
+	})
+	globalShortcut.register('CommandOrControl+R', function() {
+		console.log('CommandOrControl+R is pressed')
+		mainWindow.reload()
+	})
+}
